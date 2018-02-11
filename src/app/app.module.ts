@@ -9,6 +9,8 @@ import 'hammerjs';
 
 import { QuestionDetailComponent } from './question/question-detail.component';
 
+import { MomentModule } from 'angular2-moment';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { QuestionDetailComponent } from './question/question-detail.component';
   ],
   imports: [
     BrowserModule,
-    MaterialModule
+    MaterialModule,
+    MomentModule
   ],
   providers: [],
   bootstrap: [AppComponent]
