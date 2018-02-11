@@ -4,14 +4,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
 	MatToolbarModule,
 	MatIconModule,
-	MatCardModule
+	MatCardModule,
+	MatInputModule,
+	MatButtonModule
 } from '@angular/material';
 
 const modules = [
 	BrowserAnimationsModule,
 	MatToolbarModule,
 	MatIconModule,
-	MatCardModule
+	MatCardModule,
+	MatInputModule,
+	MatButtonModule
 ]
 
 @NgModule({

@@ -6,6 +6,16 @@ h2 {
 	margin: 0;
 }
 
+.answer-form {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 2;
+	background-color: white;
+	border-top: 1px solid #dcdcdc;
+}
+
 .answers {
 	padding: 12px;
 }
@@ -13,6 +23,7 @@ h2 {
 .answers-list {
 	padding: 0;
 	list-style: none;
+	padding-bottom: 180px;
 }
 
 h5 {
