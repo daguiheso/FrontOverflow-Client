@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import 'hammerjs';
 
+import { QuestionDetailComponent } from './question/question-detail.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    QuestionDetailComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
