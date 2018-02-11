@@ -2,7 +2,7 @@ import { Question } from "../question/question.model";
 
 export class User {
 	constructor(
-		public firstNAme: string,
+		public firstName: string,
 		public lastName: string
 	) { }
 }

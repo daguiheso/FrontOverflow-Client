@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Answer, User } from './answer.model';
+import { Question } from '../question/question.model';
 
 @Component({
   selector: 'app-answer-form',
@@ -9,13 +11,23 @@ import { NgForm } from '@angular/forms';
 
 export class AnswerFormComponent implements OnInit {
 
+  @Input() question: Question;
+
   constructor() { }
 
   ngOnInit() {
   }
 
   onSubmit(form: NgForm) {
-    debugger
+    const answer = new Answer(
+      form.value.description,
+      this.question,
+      new Date,
+      new User('Paula', 'Becerra')
+    );
+    // Agregar de primero al array
+    this.question.answers.unshift(answer);
+    form.reset();
   }
 
 }
