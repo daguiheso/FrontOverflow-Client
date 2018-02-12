@@ -10,7 +10,7 @@ import 'hammerjs';
 
 import { QuestionDetailComponent } from './question/question-detail.component';
 import { AnswerFormComponent } from './answer/answer-form.component';
-import { SigninScreenComponent } from './auth/signin-screen.component';
+import { SigninScreenComponent } from './auth/signin/signin-screen.component';
 
 import { MomentModule } from 'angular2-moment';
 
@@ -20,7 +20,8 @@ import { MomentModule } from 'angular2-moment';
     AppComponent,
     QuestionDetailComponent,
     AnswerFormComponent,
-    SigninScreenComponent
+    SigninScreenComponent,
+    SignupScreenComponent
   ],
   imports: [
     BrowserModule,
