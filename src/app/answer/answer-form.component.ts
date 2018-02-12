@@ -24,7 +24,7 @@ export class AnswerFormComponent implements OnInit {
       form.value.description,
       this.question,
       new Date,
-      new User('Paula', 'Becerra')
+      new User(null, null, 'Paula', 'Becerra')
     );
     // Agregar de primero al array
     this.question.answers.unshift(answer);
