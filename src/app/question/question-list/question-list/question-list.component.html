@@ -1,0 +1,12 @@
+<mat-list>
+  <h3 mat-subheader>Folders</h3>
+  <mat-list-item *ngFor="let question of questions">
+    <i *ngIf="question.icon === 'none'" mat-list-icon class="material-icons help">help</i>
+    <i *ngIf="question.icon !== 'none'" mat-list-icon class="{{question.icon}}"></i>
+    <!-- <mat-icon mat-list-icon>folder</mat-icon> -->
+    <h3 mat-line>{{question.title}}</h3>
+    <p mat-line>
+      <small>{{question.answers.length}} respuestas - {{question.createdAt | amLocale: 'es' | amTimeAgo}}</small>
+    </p>
+  </mat-list-item>
+</mat-list>
