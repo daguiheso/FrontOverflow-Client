@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import 'hammerjs';
 
-import { QuestionDetailComponent } from './question/question-detail.component';
+import { QuestionDetailComponent } from './question/question-detail/question-detail.component';
 import { AnswerFormComponent } from './answer/answer-form.component';
 import { SigninScreenComponent } from './auth/signin/signin-screen.component';
 import { SignupScreenComponent } from './auth/signup/signup-screen.component';

@@ -17,7 +17,7 @@ export class SigninScreenComponent implements OnInit {
   ngOnInit() {
     this.signinForm = new FormGroup({
       /*
-        First param: default value inout email
+        First param: default value input email
         Second param: array validations
       */
       email: new FormControl(null, [
