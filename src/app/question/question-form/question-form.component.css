@@ -5,3 +5,10 @@ i {
 small {
 	display: block;
 }
+
+mat-radio-group {
+	text-align: center;
+}
+mat-radio-button {
+	margin: 10px;
+}

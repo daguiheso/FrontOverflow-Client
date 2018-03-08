@@ -39,6 +39,7 @@ export class QuestionFormComponent implements OnInit {
     if (this.questionForm.valid) {
       const { title, description, icon } = this.questionForm.value;
       const q = new Question(title, description, new Date(), icon)
+      console.log(q)
     }
   }
 
