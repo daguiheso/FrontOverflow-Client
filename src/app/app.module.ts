@@ -17,6 +17,8 @@ import { SignupScreenComponent } from './auth/signup/signup-screen.component';
 
 import { MomentModule } from 'angular2-moment';
 
+import { Routing } from './app.routing'
+
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { MomentModule } from 'angular2-moment';
     MaterialModule,
     MomentModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Routing
   ],
   providers: [],
   bootstrap: [AppComponent]
