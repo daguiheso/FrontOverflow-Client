@@ -4,3 +4,10 @@ i.help {
 	height: 48px !important;
 	padding: 0 !important;
 }
+
+.add-question {
+	position: fixed;
+	right: 25px;
+	bottom: 25px;
+	font-size: 24px;
+}
