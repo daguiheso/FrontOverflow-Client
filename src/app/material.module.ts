@@ -9,7 +9,8 @@ import {
 	MatButtonModule,
 	MatListModule,
 	MatGridListModule,
-	MatRadioModule
+	MatRadioModule,
+	MatProgressSpinnerModule
 } from '@angular/material';
 
 const modules = [
@@ -21,7 +22,8 @@ const modules = [
 	MatButtonModule,
 	MatListModule,
 	MatGridListModule,
-	MatRadioModule
+	MatRadioModule,
+	MatProgressSpinnerModule
 ]
 
 @NgModule({

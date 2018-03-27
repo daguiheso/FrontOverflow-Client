@@ -1,13 +1,18 @@
-<mat-list>
-  <h3 mat-subheader>Folders</h3>
-  <mat-list-item *ngFor="let question of questions" [routerLink]="['questions', question._id]">
-    <i *ngIf="question.icon === 'none'" mat-list-icon class="material-icons help">help</i>
-    <i *ngIf="question.icon !== 'none'" mat-list-icon class="{{question.icon}}"></i>
-    <!-- <mat-icon mat-list-icon>folder</mat-icon> -->
-    <h3 mat-line>{{question.title}}</h3>
-    <p mat-line>
-      <small>{{question.answers.length}} respuestas - {{question.createdAt | amLocale: 'es' | amTimeAgo}}</small>
-    </p>
-  </mat-list-item>
-</mat-list>
-<button mat-fab class="add-question" color="accent" [routerLink]="['questions/new']">+</button>
+<div class="layer" *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="!loading">
+  <mat-list>
+    <h3 mat-subheader>Folders</h3>
+    <mat-list-item *ngFor="let question of questions" [routerLink]="['questions', question._id]">
+      <i *ngIf="question.icon === 'none'" mat-list-icon class="material-icons help">help</i>
+      <i *ngIf="question.icon !== 'none'" mat-list-icon class="{{question.icon}}"></i>
+      <!-- <mat-icon mat-list-icon>folder</mat-icon> -->
+      <h3 mat-line>{{question.title}}</h3>
+      <p mat-line>
+        <small>{{question.answers.length}} respuestas - {{question.createdAt | amLocale: 'es' | amTimeAgo}}</small>
+      </p>
+    </mat-list-item>
+  </mat-list>
+  <button mat-fab class="add-question" color="accent" [routerLink]="['questions/new']">+</button>
+</div>

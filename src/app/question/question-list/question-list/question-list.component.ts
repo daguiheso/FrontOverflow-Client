@@ -22,8 +22,8 @@ export class QuestionListComponent implements OnInit {
     this.questionService
       .getQuestions()
       .then((questions: Question[]) => {
-        debugger
         this.questions = questions;
+        this.loading = false;
       });
   }
 
