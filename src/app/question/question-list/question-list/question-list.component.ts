@@ -1,26 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { Question } from '../../question.model';
-
-const q = new Question(
-  '¿Como reutilizo un componente en Angular?',
-  'Miren, esta es mi pregunta...',
-  new Date(),
-  'none',
-);
+import { QuestionService } from '../../services/question.service';
 
 @Component({
   selector: 'app-question-list',
   templateUrl: './question-list.component.html',
-  styleUrls: ['./question-list.component.css']
+  styleUrls: ['./question-list.component.css'],
+  providers: [QuestionService]
 })
 
 export class QuestionListComponent implements OnInit {
 
-  questions: Question[] = new Array(10).fill(q);
+  questions: Question[];
+  loading = true;
 
-  constructor() { }
+  constructor(
+    private questionService: QuestionService
+  ) { }
 
   ngOnInit() {
+    this.questionService
+      .getQuestions()
+      .then((questions: Question[]) => {
+        debugger
+        this.questions = questions;
+      });
   }
 
 }

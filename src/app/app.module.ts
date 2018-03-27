@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
@@ -17,8 +18,8 @@ import { SignupScreenComponent } from './auth/signup/signup-screen.component';
 
 import { MomentModule } from 'angular2-moment';
 
-import { Routing } from './app.routing'
-
+import { Routing } from './app.routing';
+// import { QuestionService } from './question/services/question.service'
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { Routing } from './app.routing'
     MomentModule,
     FormsModule,
     ReactiveFormsModule,
-    Routing
+    Routing,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
