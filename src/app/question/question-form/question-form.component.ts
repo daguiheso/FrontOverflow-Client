@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Question } from '../question.model';
 import icons from '../icons';
+import { QuestionService } from '../services/question.service';
 
 @Component({
   selector: 'app-question-form',
   templateUrl: './question-form.component.html',
-  styleUrls: ['./question-form.component.css']
+  styleUrls: ['./question-form.component.css'],
+  providers: [QuestionService]
 })
 
 export class QuestionFormComponent implements OnInit {
@@ -25,7 +28,10 @@ export class QuestionFormComponent implements OnInit {
     return version;
   }
 
-  constructor() { }
+  constructor(
+    private route: Router,
+    private questionService: QuestionService
+  ) { }
 
   ngOnInit() {
     this.questionForm = new FormGroup({
@@ -38,8 +44,13 @@ export class QuestionFormComponent implements OnInit {
   onSubmit() {
     if (this.questionForm.valid) {
       const { title, description, icon } = this.questionForm.value;
-      const q = new Question(title, description, new Date(), icon)
-      console.log(q)
+      const q = new Question(title, description, new Date(), icon);
+      this.questionService.addQuestion(q)
+        .subscribe(
+          res => this.route.navigate(['/questions', res.body._id]),
+          error => console.log(error)
+        );
+      this.questionForm.reset();
     }
   }
 

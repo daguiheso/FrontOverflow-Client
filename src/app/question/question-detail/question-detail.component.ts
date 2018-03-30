@@ -12,7 +12,7 @@ import { QuestionService } from '../services/question.service';
 
 export class QuestionDetailComponent implements OnInit, OnDestroy {
 
-  question?: Question;
+  question?: any | Question;
   loading = true;
   sub: any;
 
@@ -25,8 +25,8 @@ export class QuestionDetailComponent implements OnInit, OnDestroy {
     this.sub = this.route.params.subscribe(params => {
       this.questionService
         .getQuestion(params.id)
-        .then((question: Question) => {
-          this.question = question;
+        .subscribe(res => {
+          this.question = res.body;
           this.loading = false;
         });
     });
