@@ -33,11 +33,11 @@ export class AnswerFormComponent implements OnInit {
       this.question
     );
 
-    // Agregar de primero al array
     this.questionService
-      .addAnswer(answer)
-      .subscribe(
-        res => {
+    .addAnswer(answer)
+    .subscribe(
+      res => {
+          // Agregar de primero al array
           this.question.answers.unshift(res.body);
           let pageScrollInstance: PageScrollInstance = PageScrollInstance.simpleInstance(this.document, '#title');
           this.pageScrollService.start(pageScrollInstance);
