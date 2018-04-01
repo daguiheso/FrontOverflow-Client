@@ -3,18 +3,22 @@ import { NgForm } from '@angular/forms';
 import { Answer } from './answer.model';
 import { Question } from '../question/question.model';
 import { User } from '../auth/user.model';
+import { QuestionService } from '../question/services/question.service';
 
 @Component({
   selector: 'app-answer-form',
   templateUrl: './answer-form.component.html',
-  styleUrls: ['./answer-form.component.css']
+  styleUrls: ['./answer-form.component.css'],
+  providers: [QuestionService]
 })
 
 export class AnswerFormComponent implements OnInit {
 
   @Input() question: Question;
 
-  constructor() { }
+  constructor(
+    private questionService: QuestionService
+  ) { }
 
   ngOnInit() {
   }
@@ -22,12 +26,16 @@ export class AnswerFormComponent implements OnInit {
   onSubmit(form: NgForm) {
     const answer = new Answer(
       form.value.description,
-      this.question,
-      new Date,
-      new User(null, null, 'Paula', 'Becerra')
+      this.question
     );
+
     // Agregar de primero al array
-    this.question.answers.unshift(answer);
+    this.questionService
+      .addAnswer(answer)
+      .subscribe(
+        res => this.question.answers.unshift(res.body),
+        error => console.error(error)
+      );
     form.reset();
   }
 

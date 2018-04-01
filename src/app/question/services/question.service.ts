@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpParams, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Question } from '../question.model';
+import { Answer } from '../../answer/answer.model';
 import { environment } from '../../../environments/environment';
 import * as urljoin from 'url-join';
 
@@ -42,6 +43,25 @@ export class QuestionService {
     });
 
     return this.http.post(this.questionsUrl, body, { headers, observe: 'response', reportProgress: true })
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+  addAnswer(answer: Answer): Observable<HttpResponse<any>> {
+    const a = {
+      description: answer.description,
+      question: {
+        _id: answer.question._id
+      }
+    };
+    const body = JSON.stringify(a);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    const url = urljoin(this.questionsUrl, answer.question._id.toString(), 'answers');
+
+    return this.http.post(url, body, { headers, observe: 'response', reportProgress: true })
       .pipe(
         catchError(this.handleError)
       )
