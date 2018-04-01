@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { Ng2PageScrollModule } from 'ng2-page-scroll';
 
 import { AppComponent } from './app.component';
 
@@ -38,7 +39,8 @@ import { Routing } from './app.routing';
     FormsModule,
     ReactiveFormsModule,
     Routing,
-    HttpClientModule
+    HttpClientModule,
+    Ng2PageScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]
