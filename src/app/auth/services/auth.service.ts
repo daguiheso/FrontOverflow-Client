@@ -59,6 +59,12 @@ export class AuthService {
     return localStorage.getItem('token') !== null;
   }
 
+  logout() {
+    localStorage.clear();
+    this.currentUser = null;
+    this.router.navigateByUrl('/');
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
